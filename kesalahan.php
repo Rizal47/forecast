@@ -114,13 +114,13 @@ include("connection/koneksi.php");
                                 <form action="hitungkesalahan.php" method="post">
                                     <div class="form-group">
                                         <label>Data Asli</label>
-                                        <input type="text" class="form-control" name="dataasli" placeholder="Masukkan" required>
+                                        <input type="text" class="form-control" name="dataasli" required>
                                     </div>
                                     <div class="form-group">
                                         <label>Peramalan</label>
-                                        <input class="form-control" type="text" name="peramalan" placeholder="Masukkan" required>
+                                        <input class="form-control" type="text" name="peramalan" required>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
                                 </form>
                                 </table>
                             </div>
@@ -157,6 +157,20 @@ include("connection/koneksi.php");
                                             ?>
                                     </tbody>
                                 </table> 
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <tr>
+                                        <th width="15%"> MAD </th>
+                                        <th width="85%"> </th>
+                                    </tr>
+                                    <tr>
+                                        <th width="15%"> MSE </th>
+                                        <th width="85%"> -</th>
+                                    </tr>
+                                    <tr>
+                                        <th width="15%"> MAPE </th>
+                                        <th width="85%"> -</th>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
