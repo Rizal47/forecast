@@ -6,6 +6,9 @@ if (!isset($_SESSION["username"])) {
     header("location: index.php");
 }
 include("backend/koneksi.php");
+include("backend/penjualan.php");
+include("backend/backend_lihat.php");
+include("connection/koneksi.php");
 ?>
 
 <html lang="en">
@@ -101,12 +104,62 @@ include("backend/koneksi.php");
             <!-- Content -->
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Kesalahan Peramalan</h1>
+                    <h1 class="h3 mb-0 text-gray-800">CRUD Data</h1>
                 </div>
+                <section class="mar-top--x-2 mar-bottom--x-2">
+                    <div class="card shadow mb-2 col-lg-6">
+                        <div class="card-body">
+                            <div class="responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <form action="hitungkesalahan.php" method="post">
+                                    <div class="form-group">
+                                        <label>Data Asli</label>
+                                        <input type="text" class="form-control" name="dataasli" placeholder="Masukkan" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Peramalan</label>
+                                        <input class="form-control" type="text" name="peramalan" placeholder="Masukkan" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <br>
                 <section class="mar-top--x-3 mar-bottom--x-5">
-                    <div class="container">
-                        
-
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead align="center">
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Data Asli</th>
+                                            <th>Peramalan</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody align="center">
+                                        <?php
+                                        $select=mysqli_query($conn,'select * from kesalahan');
+                                        while ($data = mysqli_fetch_array($select)) {
+                                         echo "
+                                                <tr>
+                                                    <td>" . $data["id_kesalahan"] . "</td>
+                                                    <td>" . $data["data_asli"] . "</td>
+                                                    <td>" . $data["peramalan"] . "</td>
+                                                    <td> <a href='delete.php?id=".$data["id_kesalahan"]."'> Hapus </a> </td>
+                                                </tr>
+                                                ";
+                                            }  
+                                            ?>
+                                    </tbody>
+                                </table> 
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
             <!-- End of Content -->

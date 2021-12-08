@@ -206,6 +206,7 @@ include("backend/backend_perkiraan.php");
                                             <option value="8" <?php echo $estimasi['8'] ?> > 8 </option>
                                             <option value="9" <?php echo $estimasi['9'] ?> > 9 </option>
                                             <option value="10" <?php echo $estimasi['10'] ?>> 10 </option>
+                                            <option value="11" <?php echo $estimasi['11'] ?>> 11 </option>
                                         </select> </td>
                                         <td width="25%">&nbsp minggu berikutnya: &nbsp</td>
                                         <td width="25%"> <?php echo $prediksi; ?> </td>
