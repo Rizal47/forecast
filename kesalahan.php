@@ -142,10 +142,13 @@ include("connection/koneksi.php");
                                         </tr>
                                     </thead>
                                     <tbody align="center">
-                                        <?php
+                                    <?php
                                         $select=mysqli_query($conn,'select * from kesalahan');
+                                        $jumlah_data=0;
+                                        $selisih=0;
+                                        $MAPE = 0;
                                         while ($data = mysqli_fetch_array($select)) {
-                                         echo "
+                                            echo "
                                                 <tr>
                                                     <td>" . $data["id_kesalahan"] . "</td>
                                                     <td>" . $data["data_asli"] . "</td>
@@ -153,22 +156,32 @@ include("connection/koneksi.php");
                                                     <td> <a href='delete.php?id=".$data["id_kesalahan"]."'> Hapus </a> </td>
                                                 </tr>
                                                 ";
-                                            }  
-                                            ?>
+                                            if ($jumlah_data>0) {
+                                                $selisih += abs($data["peramalan"] - $data["data_asli"]);
+                                                $MAPE += abs($data["peramalan"] - $data["data_asli"])/$data["data_asli"];
+                                            }
+                                            $jumlah_data+=1;
+                                            
+                                        }  
+
+                                    ?>
                                     </tbody>
                                 </table> 
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <tr>
                                         <th width="15%"> MAD </th>
-                                        <th width="85%"> </th>
+                                        <th width="85%"> <?=$selisih/$jumlah_data ?></th>
                                     </tr>
-                                    <tr>
+                                    <tr> 
                                         <th width="15%"> MSE </th>
-                                        <th width="85%"> -</th>
+                                        <th width="85%"> <?= pow($selisih,2)/$jumlah_data ?></th>
+                                        <!-- pangkat 
+                                            pow(2,2) = 2 pangkat 2
+                                            pow(2,5) = 2 pangkat 5 -->
                                     </tr>
                                     <tr>
                                         <th width="15%"> MAPE </th>
-                                        <th width="85%"> -</th>
+                                        <th width="85%"> <?= $MAPE/$jumlah_data*100?></th>
                                     </tr>
                                 </table>
                             </div>
