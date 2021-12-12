@@ -193,7 +193,7 @@ include("backend/backend_perkiraan.php");
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <th> Form Prediksi Penjualan </th>
                                     <tr>
-                                        <td width="25%"> Penjualan untuk &nbsp</td>
+                                        <td width="25%"> Peramalan untuk &nbsp</td>
                                         
                                         <td width="25%"> <select id="dropdown" name="minggu" form="prediksi" method="POST" onchange="hitung(this.value)">
                                             <option value="1" <?php echo $estimasi['1'] ?> > 1 </option>

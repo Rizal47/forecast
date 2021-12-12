@@ -140,18 +140,18 @@ include("backend/backend_lihat.php");
                                     </tr>
                                     <tr width="100%">
                                         <form action="" method="POST" enctype="multipart/form-data" id="input">
-                                        <td align="left"> Tahun </td> <td> <input type="year" name="tahun" width="80%" value="<?php echo $penjualan->tahun ?>" form="input"/> </td>
+                                        <td align="left"> Tahun </td> <td> <input type="year" name="tahun" width="80%" value="<?php echo $penjualan->tahun ?>" form="input" required/></td>
                                         </form>
                                     </tr>
                                     <tr width="100%">
                                         <form action="" method="POST" enctype="multipart/form-data" id="input">
-                                        <td align="left"> Jumlah </td> <td> <input type="text" name="jumlah" width="80%" value="<?php echo $penjualan->jumlah ?>" form="input"/> </td>
+                                        <td align="left"> Jumlah </td> <td> <input type="text" name="jumlah" width="80%" value="<?php echo $penjualan->jumlah ?>" form="input" required/> </td>
                                         </form>
                                     </tr>
                                 </table>
                                 <form action="" method="POST" enctype="multipart/form-data" id="input" align="right">
                                     <input type="hidden" name="state" value="<?php echo isset($_GET['state']) ? $_GET['state'] : 'create' ?>" id="input" form="input">
-                                    <button class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" type="submit" name="submit" id="submit" form="input"> Simpan </button>
+                                    <button class="d-none d-sm-inline-block btn btn-sm btn-success shadow-sm" type="submit" name="submit" id="submit" form="input" required> Simpan </button>
                                 </form> 
                             </div>
                         </div>

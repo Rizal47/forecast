@@ -104,7 +104,7 @@ include("connection/koneksi.php");
             <!-- Content -->
             <div class="container-fluid">
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">CRUD Data</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Kesalahan Peramalan</h1>
                 </div>
                 <section class="mar-top--x-2 mar-bottom--x-2">
                     <div class="card shadow mb-2 col-lg-6">
@@ -175,9 +175,6 @@ include("connection/koneksi.php");
                                     <tr> 
                                         <th width="15%"> MSE </th>
                                         <th width="85%"> <?= pow($selisih,2)/$jumlah_data ?></th>
-                                        <!-- pangkat 
-                                            pow(2,2) = 2 pangkat 2
-                                            pow(2,5) = 2 pangkat 5 -->
                                     </tr>
                                     <tr>
                                         <th width="15%"> MAPE </th>
